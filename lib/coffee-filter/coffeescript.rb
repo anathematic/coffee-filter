@@ -8,13 +8,7 @@ module Coffee
       lazy_require 'coffee-script'
 
       def render_with_options(text, options)
-        <<END
-<script type=#{options[:attr_wrapper]}text/javascript#{options[:attr_wrapper]}>
-  //<![CDATA[
-    #{CoffeeScript.compile(text)}
-  //]]>
-</script>
-END
+        CoffeeScript.compile(text)
       end
     end
   end
